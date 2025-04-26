@@ -1,0 +1,132 @@
+
+  :root {
+    --azul-profundo: #0B132B;
+    --azul-noche: #1C2541;
+    --dorado-suave: #FFD700;
+    --gris-claro: #D9D9D9;
+    --blanco-roto: #F5F5F5;
+  }
+  
+  body {
+    font-family: 'Manrope', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.5s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+  }
+  
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-content {
+    background-color: var(--blanco-roto);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+  }
+  
+  .modal.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  .modal.show .modal-content {
+    transform: translateY(0);
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: var(--azul-profundo);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/hero.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .section-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background-color: var(--dorado-suave);
+  }
+  
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--dorado-suave);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .section-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
